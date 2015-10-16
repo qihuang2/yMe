@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import Foundation
 
 class PostsTableViewController: PFQueryTableViewController {
-
+    
     var objectsArray:[PFObject] = []
     
     override init(style: UITableViewStyle, className: String!)
@@ -40,8 +41,25 @@ class PostsTableViewController: PFQueryTableViewController {
             }
         }
         
-        if var str : String = referringObject?["content"] as? String {
+        
+        if let tmpObj = referringObject {
+            print("Selected")
             // Object found, retreive and display info
+            let postedBy : String = tmpObj["cc_by"] as! String
+            let postTitle : String = tmpObj["title"] as! String
+            let postLikes : Int = tmpObj["likes"] as! Int
+            let comments : [String] = (tmpObj["comments"] as! [String])
+            
+            //let dateCreated : NSDate = tmpObj["createdAt"] as! NSDate
+            
+            /*
+            let postViewController = PostViewController(postedBy: postedBy, postTitle: postTitle, postLikes: postLikes, comments: comments)
+            let commentsViewController = CommentsViewController()
+            
+            let tabController = UITabBarController(nibName: nil, bundle: nil)
+            let controllers = [postViewController, commentsViewController, nil] as! NSArray
+            tabBarController?.viewControllers = controllers
+            */
             
         }else {
             print("Not found")
@@ -62,7 +80,6 @@ class PostsTableViewController: PFQueryTableViewController {
     }
     
     override func queryForTable() -> PFQuery {
-        print("Q");
         let query:PFQuery = PFQuery(className:self.parseClassName!)
         
         if(objects?.count == 0)

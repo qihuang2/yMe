@@ -1,5 +1,5 @@
 //
-//  PostViewController.swift
+//  CommentsViewController.swift
 //  yMe
 //
 //  Created by V on 10/16/15.
@@ -8,28 +8,9 @@
 
 import UIKit
 
-class PostViewController: UIViewController {
+class CommentsViewController: UIViewController {
     
-    var barController : UITabBarController = UITabBarController()
     
-    let postedBy : String
-    let postTitle : String
-    let postLikes : Int
-    let comments : [String]
-    
-    init(postedBy: String, postTitle: String, postLikes : Int, comments : [String]) {
-        self.postedBy = postedBy
-        self.postTitle = postTitle
-        self.postLikes = postLikes
-        self.comments = comments
-        super.init(nibName: nil, bundle: nil)
-        
-        
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
