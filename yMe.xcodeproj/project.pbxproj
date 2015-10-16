@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		15BB52421BD1881400959FA9 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BB52411BD1881400959FA9 /* PostViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		DB1C83851BD16BA3002BB6AE /* PostsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1C83841BD16BA3002BB6AE /* PostsTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		DBDE764F872A7FAADB90A66B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 30CD39DE741E4325A74DE035 /* libPods.a */; };
 		DBECEDC61BD15CCF00BEC605 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBECEDC51BD15CCF00BEC605 /* AppDelegate.swift */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		15BB52411BD1881400959FA9 /* PostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		30CD39DE741E4325A74DE035 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		499012D92B672DDC4D6CB9E3 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		9A178F5982142F33DAF8DE42 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 				DBECEDD11BD15CCF00BEC605 /* Info.plist */,
 				DB1C837D1BD166DC002BB6AE /* yMe-Bridging-Header.h */,
 				DB1C83841BD16BA3002BB6AE /* PostsTableViewController.swift */,
+				15BB52411BD1881400959FA9 /* PostViewController.swift */,
 			);
 			path = yMe;
 			sourceTree = "<group>";
@@ -336,6 +339,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15BB52421BD1881400959FA9 /* PostViewController.swift in Sources */,
 				DBECEDC81BD15CCF00BEC605 /* ViewController.swift in Sources */,
 				DB1C83851BD16BA3002BB6AE /* PostsTableViewController.swift in Sources */,
 				DBECEDC61BD15CCF00BEC605 /* AppDelegate.swift in Sources */,
