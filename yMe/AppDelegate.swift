@@ -16,7 +16,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        Parse.setApplicationId("yMe", clientKey: "5prKxSGl3R802PcjalW3yfqg1iB3uAn0n5k4Sfyn")
+        Parse.setApplicationId("Rl7hhBfA0f7dCnD77LTZ6YouFNdATGowXnGpt5Fc", clientKey: "7Gk5yF68R3P1tQm17DhrIbVTiH4tSztJu1Q7hjIc")
+        
+        let tableVC:PostsTableViewController = PostsTableViewController(className: "Post")
+        tableVC.title = "Post"
+        
+        UINavigationBar.appearance().tintColor = UIColor(red: 0.05, green: 0.47, blue: 0.91, alpha: 1.0)
+        UINavigationBar.appearance().barTintColor = UIColor(red: 0.05, green: 0.47, blue: 0.91, alpha: 1.0)
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
+        
+        
+        let navigationVC:UINavigationController = UINavigationController(rootViewController: tableVC)
+        
+        let frame = UIScreen.mainScreen().bounds
+        window = UIWindow(frame: frame)
+        
+        window!.rootViewController = navigationVC
+        window!.makeKeyAndVisible()
+        
         return true
     }
 
