@@ -14,7 +14,7 @@ class CommentsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        print("CommentsViewController loaded")
         // Do any additional setup after loading the view.
     }
 

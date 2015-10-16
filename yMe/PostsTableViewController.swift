@@ -36,7 +36,7 @@ class PostsTableViewController: PFQueryTableViewController {
             var uid : String = tappedCell.textLabel!.text!
             uid = uid.componentsSeparatedByString(".")[0]
             
-            if(uid == (obj["uid"] as? String)) {
+            if(uid == (obj.valueForKey("uid") as? String)) {
                 referringObject = obj
             }
         }
@@ -45,21 +45,22 @@ class PostsTableViewController: PFQueryTableViewController {
         if let tmpObj = referringObject {
             print("Selected")
             // Object found, retreive and display info
-            let postedBy : String = tmpObj["cc_by"] as! String
-            let postTitle : String = tmpObj["title"] as! String
-            let postLikes : Int = tmpObj["likes"] as! Int
-            let comments : [String] = (tmpObj["comments"] as! [String])
+            let postedBy : String = tmpObj.valueForKey("cc_by") as! String
+            let postTitle : String = tmpObj.valueForKey("title") as! String
+            let postLikes : Int = tmpObj.valueForKey("likes") as! Int
+            let comments : [String] = (tmpObj.valueForKey("comments") as! [String])
             
             //let dateCreated : NSDate = tmpObj["createdAt"] as! NSDate
             
-            /*
             let postViewController = PostViewController(postedBy: postedBy, postTitle: postTitle, postLikes: postLikes, comments: comments)
             let commentsViewController = CommentsViewController()
             
-            let tabController = UITabBarController(nibName: nil, bundle: nil)
-            let controllers = [postViewController, commentsViewController, nil] as! NSArray
+            let tabController = UITabBarController()
+            let controllers = [postViewController, commentsViewController]
             tabBarController?.viewControllers = controllers
-            */
+            tabBarController?.view.backgroundColor = UIColor.blueColor()
+            
+            self.presentViewController(tabController, animated: false, completion: nil)
             
         }else {
             print("Not found")
@@ -104,13 +105,13 @@ class PostsTableViewController: PFQueryTableViewController {
         
         if let pfObject = object {
             // Create title by appending title to uid
-            let uid : String = pfObject["uid"] as! String
-            let title : String = pfObject["title"] as! String
+            let uid : String = pfObject.valueForKey("uid") as! String
+            let title : String = pfObject.valueForKey("title") as! String
             cell?.textLabel?.text = uid + ". " + title
             
             // If object is valid, add it to array
-            let likes = pfObject["likes"] as! Int
-            let numComments = (pfObject["comments"] as! [String]).count
+            let likes = pfObject.valueForKey("likes") as! Int
+            let numComments = (pfObject.valueForKey("comments") as! [String]).count
             cell?.detailTextLabel?.text = "Likes " + String(likes) + " : Comments: " + String(numComments)
             objectsArray.append(pfObject);
         }
