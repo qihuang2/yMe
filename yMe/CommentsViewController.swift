@@ -43,6 +43,11 @@ class CommentsViewController: UIViewController,UITableViewDelegate, UITableViewD
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(animated: Bool) {
+        self.view.reloadInputViews()
+    }
+    
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.comments.count
     }

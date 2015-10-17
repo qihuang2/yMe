@@ -90,6 +90,14 @@ class PostViewController: UIViewController {
         downvoteButton.addTarget(self, action: "downvote", forControlEvents: UIControlEvents.TouchUpInside)
         
         self.view.addSubview(downvoteButton)
+        
+        let shareButton = UIButton(frame: CGRect(x: self.view.frame.size.width - 2 * leftLoc , y: topLoc*2.53, width: buttonSideLength-10, height: buttonSideLength-10))
+        
+        shareButton.backgroundColor = UIColor.blueColor()
+        
+        shareButton.addTarget(self, action: "shareButtonPressed", forControlEvents: UIControlEvents.TouchUpInside)
+        self.view.addSubview(shareButton)
+        
         // Do any additional setup after loading the view.
     }
 
@@ -130,6 +138,20 @@ class PostViewController: UIViewController {
                 gameScore.saveInBackground()
             }
         }
+    }
+    
+    
+    let shareText = "Check out this crazy story out."
+    
+    func shareButtonPressed(){
+        let activity:UIActivityViewController = UIActivityViewController(activityItems: [shareText, self.content], applicationActivities: nil)
+        let excludedActivities = [UIActivityTypeAddToReadingList,UIActivityTypeAssignToContact,UIActivityTypePrint,UIActivityTypePostToVimeo]
+        
+        activity.excludedActivityTypes = excludedActivities
+        
+        self.presentViewController(activity, animated: true, completion: nil)
+        
+            //on ipad, need to use popover
     }
 
     /*
