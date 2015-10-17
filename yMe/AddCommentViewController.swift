@@ -11,6 +11,18 @@ import UIKit
 class AddCommentViewController: UIViewController {
     
     var inputField : UITextView = UITextView()
+    let objId:String
+    var commArr:[String]
+    
+    init(objectid: String, commentArray: [String]){
+        self.objId = objectid
+        self.commArr = commentArray
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         
@@ -40,6 +52,20 @@ class AddCommentViewController: UIViewController {
     }
     
     func addComment() {
+        
+        let query = PFQuery(className:"Post")
+        query.getObjectInBackgroundWithId(self.objId) {
+            (gameScore: PFObject?, error: NSError?) -> Void in
+            if error != nil {
+                print(error)
+            } else if let gameScore = gameScore {
+                self.commArr.append(self.inputField.text)
+                gameScore.setObject(self.commArr, forKey: "comments")
+                gameScore.saveInBackground()
+            }
+        }
+        
+        
         
         self.goBack()
     }

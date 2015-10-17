@@ -10,7 +10,7 @@ import UIKit
 
 class CommentsViewController: UIViewController,UITableViewDelegate, UITableViewDataSource{
     
-    let comments : [String]
+    var comments : [String]
     let tableView = UITableView()
     let objId:String
     

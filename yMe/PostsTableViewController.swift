@@ -80,7 +80,7 @@ class PostsTableViewController: PFQueryTableViewController {
             first.view.backgroundColor = UIColor.lightGrayColor()
             let second = CommentsViewController(comments: comments, objectId: objID)
             second.view.backgroundColor = UIColor.greenColor()
-            let test = ContentTabBarControllerViewController(arrControllers: [first, second])
+            let test = ContentTabBarControllerViewController(arrControllers: [first, second], objectId: objID)
             test.navigationItem.title = "Back"
             self.navigationController?.pushViewController(test, animated: true)
             

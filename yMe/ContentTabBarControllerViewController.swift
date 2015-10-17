@@ -9,12 +9,17 @@
 import UIKit
 
 class ContentTabBarControllerViewController: UITabBarController{
-
-    init(arrControllers : [UIViewController]){
-        super.init(nibName: nil, bundle: nil)
+    let objId:String
+    var view2:CommentsViewController
+    
+    init(arrControllers : [UIViewController], objectId: String){
+        self.objId = objectId
         
         let view1 = arrControllers[0]
-        let view2 = arrControllers[1]
+        view2 = arrControllers[1] as! CommentsViewController
+        
+        super.init(nibName: nil, bundle: nil)
+        
         
         view1.tabBarItem = UITabBarItem(title: "First", image: nil, tag: 0)
         view2.tabBarItem = UITabBarItem(title: "Second", image: nil, tag: 0)
@@ -31,7 +36,7 @@ class ContentTabBarControllerViewController: UITabBarController{
     }
     
     func showCommentController() {
-        let commentController = AddCommentViewController()
+        let commentController = AddCommentViewController(objectid: objId, commentArray: view2.comments)
         commentController.view.backgroundColor = UIColor.lightGrayColor()
         self.presentViewController(commentController, animated: true, completion: nil)
         
