@@ -31,7 +31,6 @@ class PostsTableViewController: PFQueryTableViewController {
         toolbar.layer.zPosition = 100
         
         let postButton = UIButton(type: UIButtonType.System)
-        postButton.layer.anchorPoint = CGPointMake(0.5, 0.5)
         postButton.frame = CGRectMake(toolbar.frame.size.width / 2, toolbar.frame.size.height / 2, toolbar.frame.size.height / 2, toolbar.frame.size.height / 2)
         postButton.backgroundColor = UIColor.blueColor()
         postButton.setTitle("NP", forState: UIControlState.Normal)
@@ -44,8 +43,8 @@ class PostsTableViewController: PFQueryTableViewController {
     }
     
     func showPostView() {
-        let v = CreateNewPostViewController()
-        v.view.backgroundColor = UIColor.yellowColor()
+        let v = PostStoryViewController()
+        v.view.backgroundColor = UIColor.blackColor()
         self.presentViewController(v, animated: true, completion: nil)
     }
 
@@ -61,11 +60,10 @@ class PostsTableViewController: PFQueryTableViewController {
             var uid : String = tappedCell.textLabel!.text!
             uid = uid.componentsSeparatedByString(".")[0]
             
-            if(uid == (obj.valueForKey("uid") as? String)) {
+            if(uid == (obj.valueForKey("objectId") as? String)) {
                 referringObject = obj
             }
         }
-        
         
         if let tmpObj = referringObject {
             print("Selected")
@@ -74,11 +72,11 @@ class PostsTableViewController: PFQueryTableViewController {
             let postTitle : String = tmpObj.valueForKey("title") as! String
             let postLikes : Int = tmpObj.valueForKey("likes") as! Int
             let comments : [String] = (tmpObj.valueForKey("comments") as! [String])
+            let dateCreated : String = dateToString(tmpObj.valueForKey("createdAt") as! NSDate)
+            let postContent : String = (tmpObj.valueForKey("content") as! String)
             
-            //let dateCreated : NSDate = tmpObj["createdAt"] as! NSDate
-            
-            let first = PostViewController(postedBy: postedBy, postTitle: postTitle, postLikes: postLikes, comments: comments)
-            first.view.backgroundColor = UIColor.blueColor()
+            let first = PostViewController(postedBy: postedBy, postTitle: postTitle, postLikes: postLikes, comments: comments, datePosted: dateCreated, content: postContent)
+            first.view.backgroundColor = UIColor.lightGrayColor()
             let second = CommentsViewController()
             second.view.backgroundColor = UIColor.greenColor()
             let test = ContentTabBarControllerViewController(arrControllers: [first, second])
@@ -116,6 +114,12 @@ class PostsTableViewController: PFQueryTableViewController {
         return query
     }
     
+    func dateToString(date : NSDate) -> String {
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateStyle = .MediumStyle
+        
+        return dateFormatter.stringFromDate(date)
+    }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath, object: PFObject?) -> PFTableViewCell? {
         let cellIdentifier:String = "Cell"
@@ -128,14 +132,14 @@ class PostsTableViewController: PFQueryTableViewController {
         
         if let pfObject = object {
             // Create title by appending title to uid
-            let uid : String = pfObject.valueForKey("uid") as! String
+            let uid : String = pfObject.valueForKey("objectId") as! String
             let title : String = pfObject.valueForKey("title") as! String
             cell?.textLabel?.text = uid + ". " + title
             
             // If object is valid, add it to array
             let likes = pfObject.valueForKey("likes") as! Int
             let numComments = (pfObject.valueForKey("comments") as! [String]).count
-            cell?.detailTextLabel?.text = "Likes " + String(likes) + " : Comments: " + String(numComments)
+            cell?.detailTextLabel?.text = "Points " + String(likes) + " • Comments: " + String(numComments)
             objectsArray.append(pfObject);
         }
         

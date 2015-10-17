@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		155B53751BD1D49E0061BD00 /* CreateNewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155B53741BD1D49E0061BD00 /* CreateNewPostViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		155B53771BD1E9050061BD00 /* PostStoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155B53761BD1E9050061BD00 /* PostStoryViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		15BB52451BD1ADC900959FA9 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BB52431BD1ADC900959FA9 /* PostViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		15BB524A1BD1B28100959FA9 /* CommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BB52491BD1B28100959FA9 /* CommentsViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		DB09ABCF1BD1BF5300E613CF /* ContentTabBarControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB09ABCE1BD1BF5300E613CF /* ContentTabBarControllerViewController.swift */; settings = {ASSET_TAGS = (); }; };
@@ -40,7 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		155B53741BD1D49E0061BD00 /* CreateNewPostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateNewPostViewController.swift; sourceTree = "<group>"; };
+		155B53761BD1E9050061BD00 /* PostStoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostStoryViewController.swift; sourceTree = "<group>"; };
 		15BB52431BD1ADC900959FA9 /* PostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		15BB52491BD1B28100959FA9 /* CommentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentsViewController.swift; sourceTree = "<group>"; };
 		30CD39DE741E4325A74DE035 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -93,9 +93,9 @@
 		155B536F1BD1CBBA0061BD00 /* ArticleControllers */ = {
 			isa = PBXGroup;
 			children = (
+				DB09ABCE1BD1BF5300E613CF /* ContentTabBarControllerViewController.swift */,
 				15BB52431BD1ADC900959FA9 /* PostViewController.swift */,
 				15BB52491BD1B28100959FA9 /* CommentsViewController.swift */,
-				DB09ABCE1BD1BF5300E613CF /* ContentTabBarControllerViewController.swift */,
 			);
 			name = ArticleControllers;
 			sourceTree = "<group>";
@@ -150,7 +150,7 @@
 				DBECEDD11BD15CCF00BEC605 /* Info.plist */,
 				DB1C837D1BD166DC002BB6AE /* yMe-Bridging-Header.h */,
 				DB1C83841BD16BA3002BB6AE /* PostsTableViewController.swift */,
-				155B53741BD1D49E0061BD00 /* CreateNewPostViewController.swift */,
+				155B53761BD1E9050061BD00 /* PostStoryViewController.swift */,
 				155B536F1BD1CBBA0061BD00 /* ArticleControllers */,
 			);
 			path = yMe;
@@ -358,10 +358,10 @@
 			files = (
 				15BB52451BD1ADC900959FA9 /* PostViewController.swift in Sources */,
 				15BB524A1BD1B28100959FA9 /* CommentsViewController.swift in Sources */,
-				155B53751BD1D49E0061BD00 /* CreateNewPostViewController.swift in Sources */,
 				DB09ABCF1BD1BF5300E613CF /* ContentTabBarControllerViewController.swift in Sources */,
 				DBECEDC81BD15CCF00BEC605 /* ViewController.swift in Sources */,
 				DB1C83851BD16BA3002BB6AE /* PostsTableViewController.swift in Sources */,
+				155B53771BD1E9050061BD00 /* PostStoryViewController.swift in Sources */,
 				DBECEDC61BD15CCF00BEC605 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
