@@ -1,19 +1,18 @@
 //
-//  CommentsViewController.swift
+//  ContentViewController.swift
 //  yMe
 //
-//  Created by V on 10/16/15.
+//  Created by Qi Feng Huang on 10/16/15.
 //  Copyright © 2015 hackathon. All rights reserved.
 //
 
 import UIKit
 
-class CommentsViewController: UIViewController {
-    
+class ContentViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("CommentsViewController loaded")
+
         // Do any additional setup after loading the view.
     }
 

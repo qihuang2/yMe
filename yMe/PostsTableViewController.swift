@@ -52,15 +52,10 @@ class PostsTableViewController: PFQueryTableViewController {
             
             //let dateCreated : NSDate = tmpObj["createdAt"] as! NSDate
             
-            let postViewController = PostViewController(postedBy: postedBy, postTitle: postTitle, postLikes: postLikes, comments: comments)
-            let commentsViewController = CommentsViewController()
+            let test = ContentTabBarControllerViewController()
             
-            let tabController = UITabBarController()
-            let controllers = [postViewController, commentsViewController]
-            tabBarController?.viewControllers = controllers
-            tabBarController?.view.backgroundColor = UIColor.blueColor()
+            self.presentViewController(test, animated: true, completion: nil)
             
-            self.presentViewController(tabController, animated: false, completion: nil)
             
         }else {
             print("Not found")

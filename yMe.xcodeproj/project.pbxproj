@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		15BB52451BD1ADC900959FA9 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BB52431BD1ADC900959FA9 /* PostViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		15BB524A1BD1B28100959FA9 /* CommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BB52491BD1B28100959FA9 /* CommentsViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		DB09ABCF1BD1BF5300E613CF /* ContentTabBarControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB09ABCE1BD1BF5300E613CF /* ContentTabBarControllerViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		DB09ABD11BD1BF6300E613CF /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB09ABD01BD1BF6300E613CF /* ContentViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		DB1C83851BD16BA3002BB6AE /* PostsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1C83841BD16BA3002BB6AE /* PostsTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		DBDE764F872A7FAADB90A66B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 30CD39DE741E4325A74DE035 /* libPods.a */; };
 		DBECEDC61BD15CCF00BEC605 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBECEDC51BD15CCF00BEC605 /* AppDelegate.swift */; };
@@ -43,6 +45,8 @@
 		30CD39DE741E4325A74DE035 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		499012D92B672DDC4D6CB9E3 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		9A178F5982142F33DAF8DE42 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		DB09ABCE1BD1BF5300E613CF /* ContentTabBarControllerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentTabBarControllerViewController.swift; sourceTree = "<group>"; };
+		DB09ABD01BD1BF6300E613CF /* ContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
 		DB1C837D1BD166DC002BB6AE /* yMe-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "yMe-Bridging-Header.h"; sourceTree = "<group>"; };
 		DB1C83841BD16BA3002BB6AE /* PostsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostsTableViewController.swift; sourceTree = "<group>"; };
 		DBECEDC21BD15CCF00BEC605 /* yMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = yMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -138,6 +142,8 @@
 				DB1C83841BD16BA3002BB6AE /* PostsTableViewController.swift */,
 				15BB52431BD1ADC900959FA9 /* PostViewController.swift */,
 				15BB52491BD1B28100959FA9 /* CommentsViewController.swift */,
+				DB09ABCE1BD1BF5300E613CF /* ContentTabBarControllerViewController.swift */,
+				DB09ABD01BD1BF6300E613CF /* ContentViewController.swift */,
 			);
 			path = yMe;
 			sourceTree = "<group>";
@@ -344,9 +350,11 @@
 			files = (
 				15BB52451BD1ADC900959FA9 /* PostViewController.swift in Sources */,
 				15BB524A1BD1B28100959FA9 /* CommentsViewController.swift in Sources */,
+				DB09ABCF1BD1BF5300E613CF /* ContentTabBarControllerViewController.swift in Sources */,
 				DBECEDC81BD15CCF00BEC605 /* ViewController.swift in Sources */,
 				DB1C83851BD16BA3002BB6AE /* PostsTableViewController.swift in Sources */,
 				DBECEDC61BD15CCF00BEC605 /* AppDelegate.swift in Sources */,
+				DB09ABD11BD1BF6300E613CF /* ContentViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
