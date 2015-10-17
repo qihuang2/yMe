@@ -8,15 +8,14 @@
 
 import UIKit
 
-class CommentsViewController: UIViewController {
+class CommentsViewController: UIViewController,UITableViewDelegate, UITableViewDataSource{
     
     let comments : [String]
+    let tableView = UITableView()
     
     init(comments : [String]) {
         self.comments = comments
         super.init(nibName: nil, bundle: nil)
-        
-        
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -26,8 +25,34 @@ class CommentsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("CommentsViewController loaded")
+        
+        tableView.frame         =  CGRect(origin: CGPointZero, size: self.view.frame.size)
+        tableView.delegate      =   self
+        tableView.dataSource    =   self
+        tableView.rowHeight = 70
+        
+        tableView.separatorStyle = .SingleLineEtched
+        
+        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        
+        self.view.addSubview(tableView)
+        
+        
         // Do any additional setup after loading the view.
     }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.comments.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell:UITableViewCell = tableView.dequeueReusableCellWithIdentifier("cell")! as UITableViewCell
+        cell.textLabel?.text = self.comments[indexPath.row]
+        cell.selectionStyle = UITableViewCellSelectionStyle.None
+        return cell
+    }
+    
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

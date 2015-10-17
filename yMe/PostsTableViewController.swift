@@ -43,7 +43,7 @@ class PostsTableViewController: PFQueryTableViewController {
     }
     
     func showPostView() {
-        let v = PostStoryViewController()
+        let v = PostStoryViewController(numPosts: self.objectsArray.count)
         v.view.backgroundColor = UIColor.blackColor()
         self.presentViewController(v, animated: true, completion: nil)
     }
@@ -60,7 +60,7 @@ class PostsTableViewController: PFQueryTableViewController {
             var uid : String = tappedCell.textLabel!.text!
             uid = uid.componentsSeparatedByString(".")[0]
             
-            if(uid == (obj.valueForKey("objectId") as? String)) {
+            if(uid == (obj.valueForKey("uid") as? String)) {
                 referringObject = obj
             }
         }
@@ -109,7 +109,7 @@ class PostsTableViewController: PFQueryTableViewController {
             query.cachePolicy = PFCachePolicy.CacheThenNetwork
         }
         
-        query.orderByAscending("objectId")
+        query.orderByDescending("uid")
         
         return query
     }
@@ -132,7 +132,7 @@ class PostsTableViewController: PFQueryTableViewController {
         
         if let pfObject = object {
             // Create title by appending title to uid
-            let uid : String = pfObject.valueForKey("objectId") as! String
+            let uid : String = pfObject.valueForKey("uid") as! String
             let title : String = pfObject.valueForKey("title") as! String
             cell?.textLabel?.text = uid + ". " + title
             
