@@ -52,7 +52,11 @@ class PostsTableViewController: PFQueryTableViewController {
             
             //let dateCreated : NSDate = tmpObj["createdAt"] as! NSDate
             
-            let test = ContentTabBarControllerViewController()
+            let first = PostViewController(postedBy: postedBy, postTitle: postTitle, postLikes: postLikes, comments: comments)
+            first.view.backgroundColor = UIColor.blueColor()
+            let second = CommentsViewController()
+            second.view.backgroundColor = UIColor.greenColor()
+            let test = ContentTabBarControllerViewController(arrControllers: [first, second])
             
             self.presentViewController(test, animated: true, completion: nil)
             

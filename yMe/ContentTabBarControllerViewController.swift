@@ -9,16 +9,15 @@
 import UIKit
 
 class ContentTabBarControllerViewController: UITabBarController{
-    
 
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?){
-        super.init(nibName:nibNameOrNil, bundle: nibBundleOrNil)
+    init(arrControllers : [UIViewController]){
+        super.init(nibName: nil, bundle: nil)
         
-        let view1 = ContentViewController()
-        let view2 = CommentsViewController()
+        let view1 = arrControllers[0]
+        let view2 = arrControllers[1]
         
-        view1.tabBarItem = UITabBarItem(title: "first", image: nil, tag: 0)
-        view2.tabBarItem = UITabBarItem(title: "second", image: nil, tag: 0)
+        view1.tabBarItem = UITabBarItem(title: "First", image: nil, tag: 0)
+        view2.tabBarItem = UITabBarItem(title: "Second", image: nil, tag: 0)
         
         self.viewControllers = [view1, view2]
     }
