@@ -87,6 +87,8 @@ class PostViewController: UIViewController {
         let downvoteButton = UIButton(frame: CGRect(x: self.view.frame.size.width - leftLoc - buttonSideLength, y: topLoc*2.53, width: buttonSideLength, height: buttonSideLength))
         downvoteButton.backgroundColor = UIColor.redColor()
         
+        downvoteButton.addTarget(self, action: "downvote", forControlEvents: UIControlEvents.TouchUpInside)
+        
         self.view.addSubview(downvoteButton)
         // Do any additional setup after loading the view.
     }
@@ -112,6 +114,22 @@ class PostViewController: UIViewController {
             }
         }
 
+    }
+    
+    func downvote(){
+        self.postLikes--
+        self.likeLabel.text = ("\(self.postLikes)")
+        likeLabel.textColor = (self.postLikes >= 0) ? UIColor.greenColor() : UIColor.redColor()
+        let query = PFQuery(className:"Post")
+        query.getObjectInBackgroundWithId(self.objId) {
+            (gameScore: PFObject?, error: NSError?) -> Void in
+            if error != nil {
+                print(error)
+            } else if let gameScore = gameScore {
+                gameScore.setObject(self.postLikes, forKey: "likes")
+                gameScore.saveInBackground()
+            }
+        }
     }
 
     /*

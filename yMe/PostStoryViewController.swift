@@ -161,6 +161,9 @@ class PostStoryViewController: UIViewController, UITextViewDelegate {
         
         let newPost:PFObject = PFObject(className: "Post")
         
+        
+        
+        
         newPost.setValue(String(self.numPosts + 1), forKey: "uid")
         newPost.setValue(textInput.text, forKey: "content")
         newPost.setValue(nameInput.text, forKey: "cc_by")

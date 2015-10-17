@@ -96,6 +96,10 @@ class PostsTableViewController: PFQueryTableViewController {
 
         // Do any additional setup after loading the view.
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        self.loadObjects()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -133,7 +137,7 @@ class PostsTableViewController: PFQueryTableViewController {
         
         if let pfObject = object {
             // Create title by appending title to uid
-            let uid : String = pfObject.valueForKey("uid") as! String
+            let uid = pfObject.valueForKey("uid") as! String
             let title : String = pfObject.valueForKey("title") as! String
             cell?.textLabel?.text = uid + ". " + title
             
