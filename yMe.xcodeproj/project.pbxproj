@@ -88,6 +88,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		155B536F1BD1CBBA0061BD00 /* ArticleControllers */ = {
+			isa = PBXGroup;
+			children = (
+				15BB52431BD1ADC900959FA9 /* PostViewController.swift */,
+				15BB52491BD1B28100959FA9 /* CommentsViewController.swift */,
+				DB09ABCE1BD1BF5300E613CF /* ContentTabBarControllerViewController.swift */,
+			);
+			name = ArticleControllers;
+			sourceTree = "<group>";
+		};
 		60750D4D2F1217D657EBD62C /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -138,9 +148,7 @@
 				DBECEDD11BD15CCF00BEC605 /* Info.plist */,
 				DB1C837D1BD166DC002BB6AE /* yMe-Bridging-Header.h */,
 				DB1C83841BD16BA3002BB6AE /* PostsTableViewController.swift */,
-				15BB52431BD1ADC900959FA9 /* PostViewController.swift */,
-				15BB52491BD1B28100959FA9 /* CommentsViewController.swift */,
-				DB09ABCE1BD1BF5300E613CF /* ContentTabBarControllerViewController.swift */,
+				155B536F1BD1CBBA0061BD00 /* ArticleControllers */,
 			);
 			path = yMe;
 			sourceTree = "<group>";

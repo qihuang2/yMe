@@ -26,8 +26,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
         
-        
         let navigationVC:UINavigationController = UINavigationController(rootViewController: tableVC)
+        navigationVC.navigationBar.barTintColor = UIColor.blackColor()
         
         let frame = UIScreen.mainScreen().bounds
         window = UIWindow(frame: frame)

@@ -57,9 +57,8 @@ class PostsTableViewController: PFQueryTableViewController {
             let second = CommentsViewController()
             second.view.backgroundColor = UIColor.greenColor()
             let test = ContentTabBarControllerViewController(arrControllers: [first, second])
-            
-            self.presentViewController(test, animated: true, completion: nil)
-            
+            test.navigationItem.title = "Back"
+            self.navigationController?.pushViewController(test, animated: true)
             
         }else {
             print("Not found")
