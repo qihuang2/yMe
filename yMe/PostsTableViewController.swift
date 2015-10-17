@@ -74,10 +74,11 @@ class PostsTableViewController: PFQueryTableViewController {
             let comments : [String] = (tmpObj.valueForKey("comments") as! [String])
             let dateCreated : String = dateToString(tmpObj.valueForKey("createdAt") as! NSDate)
             let postContent : String = (tmpObj.valueForKey("content") as! String)
+            let objID = (tmpObj.valueForKey("objectId") as! String)
             
-            let first = PostViewController(postedBy: postedBy, postTitle: postTitle, postLikes: postLikes, comments: comments, datePosted: dateCreated, content: postContent)
+            let first = PostViewController(postedBy: postedBy, postTitle: postTitle, postLikes: postLikes, comments: comments, datePosted: dateCreated, content: postContent, objectId: objID)
             first.view.backgroundColor = UIColor.lightGrayColor()
-            let second = CommentsViewController(comments: comments)
+            let second = CommentsViewController(comments: comments, objectId: objID)
             second.view.backgroundColor = UIColor.greenColor()
             let test = ContentTabBarControllerViewController(arrControllers: [first, second])
             test.navigationItem.title = "Back"

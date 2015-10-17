@@ -19,6 +19,10 @@ class ContentTabBarControllerViewController: UITabBarController{
         view1.tabBarItem = UITabBarItem(title: "First", image: nil, tag: 0)
         view2.tabBarItem = UITabBarItem(title: "Second", image: nil, tag: 0)
         
+        // Add comment button
+        let commentButton = UIBarButtonItem(title: "Comment", style: UIBarButtonItemStyle.Done, target: self, action: "showCommentController")
+        self.navigationItem.rightBarButtonItem = commentButton
+        
         self.viewControllers = [view1, view2]
     }
 
@@ -26,6 +30,12 @@ class ContentTabBarControllerViewController: UITabBarController{
         fatalError("init(coder:) has not been implemented")
     }
     
+    func showCommentController() {
+        let commentController = AddCommentViewController()
+        commentController.view.backgroundColor = UIColor.lightGrayColor()
+        self.presentViewController(commentController, animated: true, completion: nil)
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

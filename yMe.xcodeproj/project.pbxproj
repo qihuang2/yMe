@@ -10,8 +10,9 @@
 		155B53771BD1E9050061BD00 /* PostStoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155B53761BD1E9050061BD00 /* PostStoryViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		15BB52451BD1ADC900959FA9 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BB52431BD1ADC900959FA9 /* PostViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		15BB524A1BD1B28100959FA9 /* CommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BB52491BD1B28100959FA9 /* CommentsViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		DB09ABCF1BD1BF5300E613CF /* ContentTabBarControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB09ABCE1BD1BF5300E613CF /* ContentTabBarControllerViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		DB1C83851BD16BA3002BB6AE /* PostsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1C83841BD16BA3002BB6AE /* PostsTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		DBADB4CD1BD221C5000D3EC5 /* AddCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBADB4CC1BD221C5000D3EC5 /* AddCommentViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		DBADB4CF1BD221DD000D3EC5 /* ContentTabBarControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBADB4CE1BD221DD000D3EC5 /* ContentTabBarControllerViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		DBDE764F872A7FAADB90A66B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 30CD39DE741E4325A74DE035 /* libPods.a */; };
 		DBECEDC61BD15CCF00BEC605 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBECEDC51BD15CCF00BEC605 /* AppDelegate.swift */; };
 		DBECEDC81BD15CCF00BEC605 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBECEDC71BD15CCF00BEC605 /* ViewController.swift */; };
@@ -46,9 +47,10 @@
 		30CD39DE741E4325A74DE035 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		499012D92B672DDC4D6CB9E3 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		9A178F5982142F33DAF8DE42 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		DB09ABCE1BD1BF5300E613CF /* ContentTabBarControllerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentTabBarControllerViewController.swift; sourceTree = "<group>"; };
 		DB1C837D1BD166DC002BB6AE /* yMe-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "yMe-Bridging-Header.h"; sourceTree = "<group>"; };
 		DB1C83841BD16BA3002BB6AE /* PostsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostsTableViewController.swift; sourceTree = "<group>"; };
+		DBADB4CC1BD221C5000D3EC5 /* AddCommentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCommentViewController.swift; sourceTree = "<group>"; };
+		DBADB4CE1BD221DD000D3EC5 /* ContentTabBarControllerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentTabBarControllerViewController.swift; sourceTree = "<group>"; };
 		DBECEDC21BD15CCF00BEC605 /* yMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = yMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBECEDC51BD15CCF00BEC605 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DBECEDC71BD15CCF00BEC605 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -93,7 +95,8 @@
 		155B536F1BD1CBBA0061BD00 /* ArticleControllers */ = {
 			isa = PBXGroup;
 			children = (
-				DB09ABCE1BD1BF5300E613CF /* ContentTabBarControllerViewController.swift */,
+				DBADB4CC1BD221C5000D3EC5 /* AddCommentViewController.swift */,
+				DBADB4CE1BD221DD000D3EC5 /* ContentTabBarControllerViewController.swift */,
 				15BB52431BD1ADC900959FA9 /* PostViewController.swift */,
 				15BB52491BD1B28100959FA9 /* CommentsViewController.swift */,
 			);
@@ -356,10 +359,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DBADB4CF1BD221DD000D3EC5 /* ContentTabBarControllerViewController.swift in Sources */,
 				15BB52451BD1ADC900959FA9 /* PostViewController.swift in Sources */,
 				15BB524A1BD1B28100959FA9 /* CommentsViewController.swift in Sources */,
-				DB09ABCF1BD1BF5300E613CF /* ContentTabBarControllerViewController.swift in Sources */,
 				DBECEDC81BD15CCF00BEC605 /* ViewController.swift in Sources */,
+				DBADB4CD1BD221C5000D3EC5 /* AddCommentViewController.swift in Sources */,
 				DB1C83851BD16BA3002BB6AE /* PostsTableViewController.swift in Sources */,
 				155B53771BD1E9050061BD00 /* PostStoryViewController.swift in Sources */,
 				DBECEDC61BD15CCF00BEC605 /* AppDelegate.swift in Sources */,

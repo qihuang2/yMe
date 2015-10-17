@@ -12,9 +12,11 @@ class CommentsViewController: UIViewController,UITableViewDelegate, UITableViewD
     
     let comments : [String]
     let tableView = UITableView()
+    let objId:String
     
-    init(comments : [String]) {
+    init(comments : [String], objectId: String) {
         self.comments = comments
+        self.objId = objectId
         super.init(nibName: nil, bundle: nil)
     }
 

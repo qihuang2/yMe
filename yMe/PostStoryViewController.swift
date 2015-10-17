@@ -171,6 +171,8 @@ class PostStoryViewController: UIViewController, UITextViewDelegate {
         //STILL NNEED TO ADD CATEGORY
         
         newPost.saveInBackground()
+        
+        self.cancelButtonAction()
     }
     
     

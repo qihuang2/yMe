@@ -14,22 +14,25 @@ class PostViewController: UIViewController {
     
     let postedBy : String
     let postTitle : String
-    let postLikes : Int
+    var postLikes : Int
     let comments : [String]
     let datePosted : String
     let content : String
+    let likeLabel = UILabel()
     
-    init(postedBy: String, postTitle: String, postLikes : Int, comments : [String], datePosted : String, content : String) {
+    let leftLoc : CGFloat = 25
+    let topLoc : CGFloat = 50
+    let objId:String
+    
+    init(postedBy: String, postTitle: String, postLikes : Int, comments : [String], datePosted : String, content : String, objectId: String) {
         self.postedBy = postedBy
         self.postTitle = postTitle
         self.postLikes = postLikes
         self.comments = comments
         self.datePosted = datePosted
         self.content = content
+        self.objId = objectId
         super.init(nibName: nil, bundle: nil)
-        
-        let leftLoc : CGFloat = 25
-        let topLoc : CGFloat = 50
         
         let textFont = UIFont(name: "Arial", size: 12)
         
@@ -50,6 +53,15 @@ class PostViewController: UIViewController {
         contentLabel.editable = false
         contentLabel.font = textFont
         
+        
+        likeLabel.frame = CGRect(x: self.view.frame.size.width - leftLoc * 4.15, y: topLoc * 1.5, width: 100, height: 100)
+        likeLabel.textColor = (self.postLikes >= 0) ? UIColor.greenColor() : UIColor.redColor()
+        
+        
+        likeLabel.text = String(self.postLikes)
+        
+        
+        self.view.addSubview(likeLabel)
         self.view.addSubview(titleLabel)
         self.view.addSubview(posterLabel)
         self.view.addSubview(dateLabel)
@@ -62,13 +74,33 @@ class PostViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let buttonSideLength:CGFloat = 45
+        
         print("PostViewController loaded")
+        
+        let upvoteButton = UIButton(frame: CGRect(x: self.view.frame.size.width - leftLoc - buttonSideLength, y: topLoc*1.53, width: buttonSideLength, height: buttonSideLength))
+        upvoteButton.backgroundColor = UIColor.greenColor()
+        self.view.addSubview(upvoteButton)
+        
+        let downvoteButton = UIButton(frame: CGRect(x: self.view.frame.size.width - leftLoc - buttonSideLength, y: topLoc*2.53, width: buttonSideLength, height: buttonSideLength))
+        downvoteButton.backgroundColor = UIColor.redColor()
+        
+        self.view.addSubview(downvoteButton)
         // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    
+    func upvote(){
+        /*let query = PFQuery(className: "Post")
+        var error:ErrorType
+        
+        let row = query.get
+        */
     }
 
     /*
