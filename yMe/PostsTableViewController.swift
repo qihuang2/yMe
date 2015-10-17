@@ -12,6 +12,7 @@ import Foundation
 class PostsTableViewController: PFQueryTableViewController {
     
     var objectsArray:[PFObject] = []
+    var tabBar:UITabBarController = UITabBarController()
     
     override init(style: UITableViewStyle, className: String!)
     {
@@ -22,6 +23,30 @@ class PostsTableViewController: PFQueryTableViewController {
         self.objectsPerPage = 25
         
         self.parseClassName = className
+        
+        // Add button to post
+        
+        let toolbar = UIToolbar()
+        toolbar.frame = CGRectMake(0, self.view.frame.size.height - (75 * 1.5), self.view.frame.size.width, 75)
+        toolbar.layer.zPosition = 100
+        
+        let postButton = UIButton(type: UIButtonType.System)
+        postButton.layer.anchorPoint = CGPointMake(0.5, 0.5)
+        postButton.frame = CGRectMake(toolbar.frame.size.width / 2, toolbar.frame.size.height / 2, toolbar.frame.size.height / 2, toolbar.frame.size.height / 2)
+        postButton.backgroundColor = UIColor.blueColor()
+        postButton.setTitle("NP", forState: UIControlState.Normal)
+        postButton.addTarget(self, action: "showPostView", forControlEvents: UIControlEvents.TouchUpInside)
+        postButton.layer.zPosition = 100
+        
+        let barButton = UIBarButtonItem(customView: postButton)
+        toolbar.setItems([barButton], animated: true)
+        self.view.addSubview(toolbar)
+    }
+    
+    func showPostView() {
+        let v = CreateNewPostViewController()
+        v.view.backgroundColor = UIColor.yellowColor()
+        self.presentViewController(v, animated: true, completion: nil)
     }
 
     required init?(coder aDecoder: NSCoder) {
