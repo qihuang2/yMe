@@ -14,12 +14,14 @@ class PostStoryViewController: UIViewController, UITextViewDelegate {
     let inputWindowHeight:CGFloat = 30
     let inputTextWindowHeight:CGFloat = 200
     let PLACEHOLDER_TEXT = "Write your post"
+    var postCategory:Int?
     
     
     let numPosts: Int
     let textInput: UITextView
     let nameInput: UITextField
     let titleInput: UITextField
+    let catButton:UISegmentedControl
     
     init(numPosts : Int) {
         
@@ -27,11 +29,15 @@ class PostStoryViewController: UIViewController, UITextViewDelegate {
         let startX:CGFloat = (screenSize.width) * 0.1
         let startY:CGFloat = (screenSize.height) * 0.1
         
-        self.textInput = UITextView(frame: CGRect(x: startX, y: startY + 120, width: inputWindowWidth, height: inputTextWindowHeight))
+        self.textInput = UITextView(frame: CGRect(x: startX, y: startY + 180, width: inputWindowWidth, height: inputTextWindowHeight))
         self.nameInput = UITextField(frame: CGRect(x: startX, y: startY + 60, width: inputWindowWidth, height: inputWindowHeight))
         self.titleInput = UITextField(frame: CGRect(x: startX, y: startY, width: inputWindowWidth, height: inputWindowHeight))
         
         self.numPosts = numPosts
+        
+        self.catButton = UISegmentedControl(frame: CGRect(x: startX, y: startY + 120, width: inputWindowWidth, height: inputWindowHeight))
+        
+        
         super.init(nibName: nil, bundle: nil)
         
     }
@@ -56,24 +62,28 @@ class PostStoryViewController: UIViewController, UITextViewDelegate {
         self.view.addSubview(sendButton)
         
         let cancelButton = UIButton(frame: CGRect(x: screenSize!.width * 0.4, y: screenSize!.height*0.85, width: 60, height: 60))
-        cancelButton.addTarget(self, action: "cancelButtonAction", forControlEvents: UIControlEvents.TouchUpInside)
+        cancelButton.addTarget(self, action: "cancelButtonPressed", forControlEvents: UIControlEvents.TouchUpInside)
         cancelButton.backgroundColor = UIColor.blueColor()
         self.view.addSubview(cancelButton)
         
         titleInput.placeholder = "Title of post"
         titleInput.borderStyle = UITextBorderStyle.RoundedRect
         titleInput.textAlignment = NSTextAlignment.Center
-        titleInput.becomeFirstResponder()
         
         nameInput.placeholder = "Username"
         nameInput.borderStyle = UITextBorderStyle.RoundedRect
         nameInput.textAlignment = NSTextAlignment.Center
-        nameInput.becomeFirstResponder()
         
-        
-        //textInput.textAlignment = NSTextAlignment.Center
+        catButton.insertSegmentWithTitle("Abuse", atIndex: 0, animated: true)
+        catButton.insertSegmentWithTitle("Depression", atIndex: 1, animated: true)
+        catButton.insertSegmentWithTitle("Discrimination", atIndex: 2, animated: true)
+        catButton.insertSegmentWithTitle("Exclusion", atIndex: 3, animated: true)
+        catButton.insertSegmentWithTitle("Oppression", atIndex: 4, animated: true)
+        catButton.insertSegmentWithTitle("Misc", atIndex: 5, animated: true)
+        catButton.addTarget(self, action: "catButtonSwitched:", forControlEvents: UIControlEvents.ValueChanged)
         
         self.view.addSubview(titleInput)
+        self.view.addSubview(catButton)
         self.view.addSubview(nameInput)
         self.view.addSubview(textInput)
         
@@ -153,7 +163,7 @@ class PostStoryViewController: UIViewController, UITextViewDelegate {
     func postStory() {
         //nothing
         //ADD CATEGORY
-        if (!textInput.hasText() || !nameInput.hasText() || !titleInput.hasText()){
+        if (!textInput.hasText() || !nameInput.hasText() || !titleInput.hasText() || self.postCategory == nil){
             return
         }
         
@@ -163,19 +173,23 @@ class PostStoryViewController: UIViewController, UITextViewDelegate {
         
         
         
-        
+        newPost.setValue(postCategory, forKey: "category")
         newPost.setValue(String(self.numPosts + 1), forKey: "uid")
         newPost.setValue(textInput.text, forKey: "content")
         newPost.setValue(nameInput.text, forKey: "cc_by")
         newPost.setValue(titleInput.text, forKey: "title")
         newPost.setValue(0, forKey: "likes")
         newPost.setValue([], forKey: "comments")
-        
-        //STILL NNEED TO ADD CATEGORY
+
         
         newPost.saveInBackground()
         
         self.cancelButtonAction()
+    }
+    
+    
+    func catButtonSwitched(sender : UISegmentedControl){
+        self.postCategory = sender.selectedSegmentIndex as Int
     }
     
     
