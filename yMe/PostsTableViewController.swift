@@ -77,7 +77,7 @@ class PostsTableViewController: PFQueryTableViewController {
             
             let first = PostViewController(postedBy: postedBy, postTitle: postTitle, postLikes: postLikes, comments: comments, datePosted: dateCreated, content: postContent)
             first.view.backgroundColor = UIColor.lightGrayColor()
-            let second = CommentsViewController()
+            let second = CommentsViewController(comments: comments)
             second.view.backgroundColor = UIColor.greenColor()
             let test = ContentTabBarControllerViewController(arrControllers: [first, second])
             test.navigationItem.title = "Back"
@@ -109,7 +109,7 @@ class PostsTableViewController: PFQueryTableViewController {
             query.cachePolicy = PFCachePolicy.CacheThenNetwork
         }
         
-        query.orderByAscending("title")
+        query.orderByAscending("objectId")
         
         return query
     }

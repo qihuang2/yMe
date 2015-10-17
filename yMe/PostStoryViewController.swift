@@ -15,6 +15,7 @@ class PostStoryViewController: UIViewController, UITextViewDelegate {
     let inputTextWindowHeight:CGFloat = 200
     let PLACEHOLDER_TEXT = "Write your post"
     
+    
     let textInput:UITextView
     let nameInput: UITextField
     let titleInput:UITextField
@@ -49,14 +50,12 @@ class PostStoryViewController: UIViewController, UITextViewDelegate {
         let sendButton = UIButton(frame: CGRect(x: self.view.frame.size.width * 0.6, y: self.view.frame.size.height*0.85, width: 60, height: 60))
         sendButton.layer.zPosition = 200
         sendButton.backgroundColor = UIColor.greenColor()
-        
+        sendButton.addTarget(self, action: "postStory", forControlEvents: UIControlEvents.TouchUpInside)
         self.view.addSubview(sendButton)
         
         let cancelButton = UIButton(frame: CGRect(x: screenSize!.width * 0.4, y: screenSize!.height*0.85, width: 60, height: 60))
         cancelButton.addTarget(self, action: "cancelButtonAction", forControlEvents: UIControlEvents.TouchUpInside)
-
         cancelButton.backgroundColor = UIColor.blueColor()
-        
         self.view.addSubview(cancelButton)
         
         titleInput.placeholder = "Title of post"
@@ -68,6 +67,7 @@ class PostStoryViewController: UIViewController, UITextViewDelegate {
         nameInput.borderStyle = UITextBorderStyle.RoundedRect
         nameInput.textAlignment = NSTextAlignment.Center
         nameInput.becomeFirstResponder()
+        
         
         //textInput.textAlignment = NSTextAlignment.Center
         
@@ -148,6 +148,49 @@ class PostStoryViewController: UIViewController, UITextViewDelegate {
         }
     }
 
-    
+    func postStory(){
+        print("Posting story")
+        //nothing
+        //ADD CATEGORY
+        if (!textInput.hasText() || !nameInput.hasText() || !titleInput.hasText()){
+            return
+        }
+        let newPost:PFObject = PFObject(className: "Post")
+        
+        
+        
+        
+        var numOfPosts:Int = 0
+        let query = PFQuery(className:"ourAppCounters")
+        query.getObjectInBackgroundWithId("numberOfPosts") {
+            (gameScore: PFObject?, error: NSError?) -> Void in
+            if error != nil {
+                print(error)
+                return
+            } else if let temp = gameScore {
+                print("updated")
+                numOfPosts = temp.valueForKey("counter") as! Int
+                numOfPosts = numOfPosts + 1
+                temp.setValue(numOfPosts, forKey: "counter")
+                gameScore!.saveInBackground()
+            }
+        }
+        
+        
+        
+        
+        newPost.setValue(textInput.text, forKey: "content")
+        newPost.setValue(nameInput.text, forKey: "cc_by")
+        newPost.setValue(titleInput.text, forKey: "title")
+        newPost.setValue(0, forKey: "likes")
+        newPost.setValue([], forKey: "comments")
+        newPost.setValue(String(numOfPosts), forKey: "objectId")     //increment and set as objId
+        
+        
+        //STILL NNEED TO ADD CATEGORY
+        
+        
+        newPost.saveInBackground()
+    }
 
 }

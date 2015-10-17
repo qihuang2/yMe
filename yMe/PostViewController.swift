@@ -31,7 +31,7 @@ class PostViewController: UIViewController {
         let leftLoc : CGFloat = 25
         let topLoc : CGFloat = 50
         
-        let textFont = UIFont(name: "AppleColorEmoji", size: 12)
+        let textFont = UIFont(name: "Arial", size: 12)
         
         let titleLabel = UILabel(frame: CGRectMake(leftLoc, topLoc, self.view.frame.size.width * 3/4, 100))
         titleLabel.text = "Title: " + self.postTitle

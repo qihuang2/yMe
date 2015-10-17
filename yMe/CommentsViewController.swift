@@ -10,7 +10,19 @@ import UIKit
 
 class CommentsViewController: UIViewController {
     
+    let comments : [String]
+    
+    init(comments : [String]) {
+        self.comments = comments
+        super.init(nibName: nil, bundle: nil)
+        
+        
+    }
 
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         print("CommentsViewController loaded")
@@ -21,7 +33,6 @@ class CommentsViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
     /*
     // MARK: - Navigation
