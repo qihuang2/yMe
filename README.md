@@ -1,4 +1,4 @@
-# yMe Hackathon at Lehman College
+#Hackathon at Lehman College
 
 Created by Qi Feng Huang and Varan Sharma during Lehman College's hackathon, October 17-18 2015.
 
